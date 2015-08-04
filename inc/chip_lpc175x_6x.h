@@ -175,6 +175,7 @@ extern "C" {
 #include "rtc_17xx_40xx.h"
 #include "spi_17xx_40xx.h"
 #include "ssp_17xx_40xx.h"
+#include "stopwatch.h"
 #include "timer_17xx_40xx.h"
 #include "uart_17xx_40xx.h"
 #include "usb_17xx_40xx.h"
