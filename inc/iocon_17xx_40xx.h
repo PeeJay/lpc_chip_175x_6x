@@ -170,17 +170,6 @@ STATIC INLINE void Chip_IOCON_Init(LPC_IOCON_T *pIOCON)
 void Chip_IOCON_PinMuxSet(LPC_IOCON_T *pIOCON, uint8_t port, uint8_t pin, uint32_t modefunc);
 
 /**
- * @brief	Setup pin modes and function
- * @param	pIOCON		: The base of IOCON peripheral on the chip
- * @param	port 		: port number
- * @param	pin			: gpio pin number
- * @param	mode		: OR'ed values or type IOCON_*
- * @param	func		: Pin function, value of type IOCON_FUNC0 to IOCON_FUNC3
- * @return	Nothing
- */
-void Chip_IOCON_PinMux(LPC_IOCON_T *pIOCON, uint8_t port, uint8_t pin, uint32_t mode, uint8_t func);
-
-/**
  * @brief	Enable open drain mode
  * @param	pIOCON		: The base of IOCON peripheral on the chip
  * @param	port 		: port number
