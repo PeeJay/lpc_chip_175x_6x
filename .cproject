@@ -23,9 +23,9 @@
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactExtension="a" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.staticLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.staticLib" cleanCommand="rm -rf" description="Debug build" errorParsers="org.eclipse.cdt.core.CWDLocator;org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" id="com.crt.advproject.config.lib.debug.1264058482" name="Debug" parent="com.crt.advproject.config.lib.debug" postannouncebuildStep="Performing post-build steps" postbuildStep="arm-none-eabi-size &quot;lib${BuildArtifactFileName}&quot; ; # arm-none-eabi-objdump -h -S &quot;lib${BuildArtifactFileName}&quot; &gt;&quot;${BuildArtifactFileBaseName}.lss&quot;">
 					<folderInfo id="com.crt.advproject.config.lib.debug.1264058482." name="/" resourcePath="">
-						<toolChain id="com.crt.advproject.toolchain.lib.debug.593853259" name="Code Red MCU Tools" superClass="com.crt.advproject.toolchain.lib.debug">
+						<toolChain id="com.crt.advproject.toolchain.lib.debug.593853259" name="Code Red MCU Tools" nonInternalBuilderId="cdt.managedbuild.target.gnu.builder.base" superClass="com.crt.advproject.toolchain.lib.debug">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF" id="com.crt.advproject.platform.lib.debug.1544112536" name="ARM-based MCU (Debug)" superClass="com.crt.advproject.platform.lib.debug"/>
-							<builder buildPath="${workspace_loc:/lpc_chip_175x_6x}/Debug" id="com.crt.advproject.builder.lib.debug.473280062" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="com.crt.advproject.builder.lib.debug"/>
+							<builder buildPath="${workspace_loc:/lpc_chip_175x_6x}/Debug" id="cdt.managedbuild.target.gnu.builder.base.363062342" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.base"/>
 							<tool id="com.crt.advproject.cpp.lib.debug.1864839615" name="MCU C++ Compiler" superClass="com.crt.advproject.cpp.lib.debug"/>
 							<tool id="com.crt.advproject.gcc.lib.debug.1317359937" name="MCU C Compiler" superClass="com.crt.advproject.gcc.lib.debug">
 								<option id="com.crt.advproject.gcc.arch.853820417" name="Architecture" superClass="com.crt.advproject.gcc.arch" value="com.crt.advproject.gcc.target.cm3" valueType="enumerated"/>
@@ -33,6 +33,8 @@
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1590532643" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__REDLIB__"/>
 									<listOptionValue builtIn="false" value="DEBUG"/>
+									<listOptionValue builtIn="false" value="__LPC17XX__"/>
+									<listOptionValue builtIn="false" value="__LPC175X_6X__"/>
 									<listOptionValue builtIn="false" value="__CODE_RED"/>
 									<listOptionValue builtIn="false" value="__USE_LPCOPEN"/>
 									<listOptionValue builtIn="false" value="CORE_M3"/>
@@ -40,27 +42,47 @@
 								<option id="gnu.c.compiler.option.misc.other.547730356" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections" valueType="string"/>
 								<option id="gnu.c.compiler.option.include.paths.308285598" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lpc_chip_175x_6x/LPCUSBLib/Drivers/USB}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lpc_chip_175x_6x/fatfs/inc}&quot;"/>
 								</option>
 								<option id="com.crt.advproject.gcc.hdrlib.659059086" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="Redlib" valueType="enumerated"/>
+								<option id="com.crt.advproject.c.misc.dialect.589261720" name="Language standard" superClass="com.crt.advproject.c.misc.dialect" value="com.crt.advproject.misc.dialect.gnu99" valueType="enumerated"/>
 								<inputType id="com.crt.advproject.compiler.input.999403241" superClass="com.crt.advproject.compiler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gas.lib.debug.1653831520" name="MCU Assembler" superClass="com.crt.advproject.gas.lib.debug">
 								<option id="com.crt.advproject.gas.arch.2107344318" name="Architecture" superClass="com.crt.advproject.gas.arch" value="com.crt.advproject.gas.target.cm3" valueType="enumerated"/>
 								<option id="com.crt.advproject.gas.thumb.25247736" name="Thumb mode" superClass="com.crt.advproject.gas.thumb" value="true" valueType="boolean"/>
-								<option id="gnu.both.asm.option.flags.crt.336523083" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -D__REDLIB__ -DDEBUG -D__CODE_RED" valueType="string"/>
-								<option id="com.crt.advproject.gas.hdrlib.268642839" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="Redlib" valueType="enumerated"/>
-								<option id="gnu.both.asm.option.include.paths.1194143381" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath"/>
+								<option id="gnu.both.asm.option.flags.crt.336523083" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -DDEBUG -D__CODE_RED -D__NEWLIB__" valueType="string"/>
+								<option id="com.crt.advproject.gas.hdrlib.268642839" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="com.crt.advproject.gas.hdrlib.newlib" valueType="enumerated"/>
+								<option id="gnu.both.asm.option.include.paths.1194143381" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
+								<option id="com.crt.advproject.gas.specs.1651559502" name="Specs" superClass="com.crt.advproject.gas.specs" value="com.crt.advproject.gas.specs.newlib" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.274329393" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 								<inputType id="com.crt.advproject.assembler.input.1553527623" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.ar.lib.debug.756466351" name="MCU Archiver" superClass="com.crt.advproject.ar.lib.debug"/>
 						</toolChain>
 					</folderInfo>
-					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
-					</sourceEntries>
+					<fileInfo id="com.crt.advproject.config.lib.debug.1264058482.10964234" name="usbd_cdc.c" rcbsApplicability="disable" resourcePath="LPCUSBLib/Drivers/USB/Core/LPC/DCD/USBRom/usbd_cdc.c" toolsToInvoke="com.crt.advproject.gcc.lib.debug.1317359937.2124218018">
+						<tool id="com.crt.advproject.gcc.lib.debug.1317359937.2124218018" name="MCU C Compiler" superClass="com.crt.advproject.gcc.lib.debug.1317359937">
+							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1862406018" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+								<listOptionValue builtIn="false" value="__REDLIB__"/>
+								<listOptionValue builtIn="false" value="DEBUG"/>
+								<listOptionValue builtIn="false" value="__CODE_RED"/>
+								<listOptionValue builtIn="false" value="__USE_LPCOPEN"/>
+								<listOptionValue builtIn="false" value="CORE_M3"/>
+								<listOptionValue builtIn="false" value="__LPC17XX__"/>
+								<listOptionValue builtIn="false" value="__LPC175X_6X__"/>
+								<listOptionValue builtIn="false" value="USB_CAN_BE_DEVICE"/>
+							</option>
+							<inputType id="com.crt.advproject.compiler.input.383563344" superClass="com.crt.advproject.compiler.input"/>
+						</tool>
+						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.270238375" name="Resource Custom Build Step">
+							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1411994494" name="Resource Custom Build Step Input Type">
+								<additionalInput kind="additionalinputdependency"/>
+							</inputType>
+							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.1221833405" name="Resource Custom Build Step Output Type"/>
+						</tool>
+					</fileInfo>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
@@ -96,7 +118,9 @@
 								<option id="com.crt.advproject.gcc.thumb.171528628" name="Thumb mode" superClass="com.crt.advproject.gcc.thumb" value="true" valueType="boolean"/>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.2088469837" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__REDLIB__"/>
-									<listOptionValue builtIn="false" value="NDEBUG"/>
+									<listOptionValue builtIn="false" value="DEBUG"/>
+									<listOptionValue builtIn="false" value="__LPC17XX__"/>
+									<listOptionValue builtIn="false" value="__LPC175X_6X__"/>
 									<listOptionValue builtIn="false" value="__CODE_RED"/>
 									<listOptionValue builtIn="false" value="__USE_LPCOPEN"/>
 									<listOptionValue builtIn="false" value="CORE_M3"/>
@@ -104,6 +128,8 @@
 								<option id="gnu.c.compiler.option.misc.other.1556351852" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections" valueType="string"/>
 								<option id="gnu.c.compiler.option.include.paths.2003082273" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lpc_chip_175x_6x/LPCUSBLib/Drivers/USB}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/lpc_chip_175x_6x/fatfs/inc}&quot;"/>
 								</option>
 								<option id="com.crt.advproject.gcc.lib.release.option.optimization.level.579854573" name="Optimization Level" superClass="com.crt.advproject.gcc.lib.release.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
 								<option id="com.crt.advproject.gcc.hdrlib.138857683" name="Library headers" superClass="com.crt.advproject.gcc.hdrlib" value="Redlib" valueType="enumerated"/>
@@ -114,7 +140,7 @@
 								<option id="com.crt.advproject.gas.thumb.1206272642" name="Thumb mode" superClass="com.crt.advproject.gas.thumb" value="true" valueType="boolean"/>
 								<option id="gnu.both.asm.option.flags.crt.1319485670" name="Assembler flags" superClass="gnu.both.asm.option.flags.crt" value="-c -x assembler-with-cpp -D__REDLIB__ -DNDEBUG -D__CODE_RED" valueType="string"/>
 								<option id="com.crt.advproject.gas.hdrlib.328516326" name="Library headers" superClass="com.crt.advproject.gas.hdrlib" value="Redlib" valueType="enumerated"/>
-								<option id="gnu.both.asm.option.include.paths.1098761487" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath"/>
+								<option id="gnu.both.asm.option.include.paths.1098761487" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1024480185" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 								<inputType id="com.crt.advproject.assembler.input.1648340189" name="Additional Assembly Source Files" superClass="com.crt.advproject.assembler.input"/>
 							</tool>
@@ -122,9 +148,9 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="LPCUSBLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="ssp_17xx_40xx.c|stopwatch_17xx_40xx.c|emc_17xx_40xx.c|eeprom_17xx_40xx.c|dac_17xx_40xx.c|cmp_17xx_40xx.c|wwdt_17xx_40xx.c|can_17xx_40xx.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -147,59 +173,59 @@
 &lt;memory can_program="true" id="Flash" is_ro="true" type="Flash"/&gt;&#13;
 &lt;memory id="RAM" type="RAM"/&gt;&#13;
 &lt;memory id="Periph" is_volatile="true" type="Peripheral"/&gt;&#13;
-&lt;memoryInstance derived_from="Flash" id="MFlash512" location="0x00000000" size="0x80000"/&gt;&#13;
+&lt;memoryInstance derived_from="Flash" id="MFlash512" location="0x0" size="0x80000"/&gt;&#13;
 &lt;memoryInstance derived_from="RAM" id="RamLoc32" location="0x10000000" size="0x8000"/&gt;&#13;
 &lt;memoryInstance derived_from="RAM" id="RamAHB32" location="0x2007c000" size="0x8000"/&gt;&#13;
 &lt;prog_flash blocksz="0x1000" location="0" maxprgbuff="0x1000" progwithcode="TRUE" size="0x10000"/&gt;&#13;
 &lt;prog_flash blocksz="0x8000" location="0x10000" maxprgbuff="0x1000" progwithcode="TRUE" size="0x70000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_NVIC" determined="infoFile" id="NVIC" location="0xE000E000"/&gt;&#13;
-&lt;peripheralInstance derived_from="TIMER" determined="infoFile" enable="SYSCTL.PCONP.PCTIM0&amp;amp;0x1" id="TIMER0" location="0x40004000"/&gt;&#13;
-&lt;peripheralInstance derived_from="TIMER" determined="infoFile" enable="SYSCTL.PCONP.PCTIM1&amp;amp;0x1" id="TIMER1" location="0x40008000"/&gt;&#13;
-&lt;peripheralInstance derived_from="TIMER" determined="infoFile" enable="SYSCTL.PCONP.PCTIM2&amp;amp;0x1" id="TIMER2" location="0x40090000"/&gt;&#13;
-&lt;peripheralInstance derived_from="TIMER" determined="infoFile" enable="SYSCTL.PCONP.PCTIM3&amp;amp;0x1" id="TIMER3" location="0x40094000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_RIT" determined="infoFile" enable="SYSCTL.PCONP.PCRIT&amp;amp;0x1" id="RIT" location="0x400B0000"/&gt;&#13;
-&lt;peripheralInstance derived_from="FGPIO" determined="infoFile" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO0" location="0x2009C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="FGPIO" determined="infoFile" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO1" location="0x2009C020"/&gt;&#13;
-&lt;peripheralInstance derived_from="FGPIO" determined="infoFile" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO2" location="0x2009C040"/&gt;&#13;
-&lt;peripheralInstance derived_from="FGPIO" determined="infoFile" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO3" location="0x2009C060"/&gt;&#13;
-&lt;peripheralInstance derived_from="FGPIO" determined="infoFile" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO4" location="0x2009C080"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_I2S" determined="infoFile" enable="SYSCTL.PCONP&amp;amp;0x08000000" id="I2S" location="0x400A8000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_SYSCTL" determined="infoFile" id="SYSCTL" location="0x400FC000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_DAC" determined="infoFile" enable="PCB.PINSEL1.P0_26&amp;amp;0x2=2" id="DAC" location="0x4008C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17xx_UART" determined="infoFile" enable="SYSCTL.PCONP.PCUART0&amp;amp;0x1" id="UART0" location="0x4000C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17xx_UART_MODEM" determined="infoFile" enable="SYSCTL.PCONP.PCUART1&amp;amp;0x1" id="UART1" location="0x40010000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17xx_UART" determined="infoFile" enable="SYSCTL.PCONP.PCUART2&amp;amp;0x1" id="UART2" location="0x40098000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17xx_UART" determined="infoFile" enable="SYSCTL.PCONP.PCUART3&amp;amp;0x1" id="UART3" location="0x4009C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="SPI" determined="infoFile" enable="SYSCTL.PCONP.PCSPI&amp;amp;0x1" id="SPI" location="0x40020000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_SSP" determined="infoFile" enable="SYSCTL.PCONP.PCSSP0&amp;amp;0x1" id="SSP0" location="0x40088000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_SSP" determined="infoFile" enable="SYSCTL.PCONP.PCSSP1&amp;amp;0x1" id="SSP1" location="0x40030000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_ADC" determined="infoFile" enable="SYSCTL.PCONP.PCAD&amp;amp;0x1" id="ADC" location="0x40034000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_USBINTST" determined="infoFile" enable="USBCLKCTL.USBClkCtrl&amp;amp;0x12" id="USBINTSTAT" location="0x400fc1c0"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_USB_CLK_CTL" determined="infoFile" id="USBCLKCTL" location="0x5000cff4"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_USBDEV" determined="infoFile" enable="USBCLKCTL.USBClkSt&amp;amp;0x12=0x12" id="USBDEV" location="0x5000C200"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_PWM" determined="infoFile" enable="SYSCTL.PCONP.PWM1&amp;amp;0x1" id="PWM" location="0x40018000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_I2C" determined="infoFile" enable="SYSCTL.PCONP.PCI2C0&amp;amp;0x1" id="I2C0" location="0x4001C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_I2C" determined="infoFile" enable="SYSCTL.PCONP.PCI2C1&amp;amp;0x1" id="I2C1" location="0x4005C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_I2C" determined="infoFile" enable="SYSCTL.PCONP.PCI2C2&amp;amp;0x1" id="I2C2" location="0x400A0000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_DMA" determined="infoFile" enable="SYSCTL.PCONP.PCGPDMA&amp;amp;0x1" id="DMA" location="0x50004000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_ENET" determined="infoFile" enable="SYSCTL.PCONP.PCENET&amp;amp;0x1" id="ENET" location="0x50000000"/&gt;&#13;
-&lt;peripheralInstance derived_from="CM3_DCR" determined="infoFile" id="DCR" location="0xE000EDF0"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_PCB" determined="infoFile" id="PCB" location="0x4002c000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_QEI" determined="infoFile" enable="SYSCTL.PCONP.PCQEI&amp;amp;0x1" id="QEI" location="0x400bc000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_USBHOST" determined="infoFile" enable="USBCLKCTL.USBClkSt&amp;amp;0x11=0x11" id="USBHOST" location="0x5000C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_USBOTG" determined="infoFile" enable="USBCLKCTL.USBClkSt&amp;amp;0x1c=0x1c" id="USBOTG" location="0x5000C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_RTC" determined="infoFile" enable="SYSCTL.PCONP.PCRTC&amp;amp;0x1" id="RTC" location="0x40024000"/&gt;&#13;
-&lt;peripheralInstance derived_from="MPU" determined="infoFile" id="MPU" location="0xE000ED90"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC1x_WDT" determined="infoFile" id="WDT" location="0x40000000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_FLASHCFG" determined="infoFile" id="FLASHACCEL" location="0x400FC000"/&gt;&#13;
-&lt;peripheralInstance derived_from="GPIO_INT" determined="infoFile" id="GPIOINTMAP" location="0x40028080"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_CANAFR" determined="infoFile" enable="SYSCTL.PCONP.PCCAN1&amp;amp;0x1|SYSCTL.PCONP.PCCAN2&amp;amp;0x1" id="CANAFR" location="0x4003C000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_CANCEN" determined="infoFile" enable="SYSCTL.PCONP.PCCAN1&amp;amp;0x1|SYSCTL.PCONP.PCCAN2&amp;amp;0x1" id="CANCEN" location="0x40040000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_CANWAKESLEEP" determined="infoFile" id="CANWAKESLEEP" location="0x400FC110"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_CANCON" determined="infoFile" enable="SYSCTL.PCONP.PCCAN1&amp;amp;0x1" id="CANCON1" location="0x40044000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_CANCON" determined="infoFile" enable="SYSCTL.PCONP.PCCAN2&amp;amp;0x1" id="CANCON2" location="0x40048000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_MCPWM" determined="infoFile" enable="SYSCTL.PCONP.PCMCPWM&amp;amp;0x1" id="MCPWM" location="0x400B8000"/&gt;&#13;
-&lt;peripheralInstance derived_from="LPC17_FMC" determined="infoFile" id="FMC" location="0x40084000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_NVIC" id="NVIC" location="0xE000E000"/&gt;&#13;
+&lt;peripheralInstance derived_from="TIMER" enable="SYSCTL.PCONP.PCTIM0&amp;amp;0x1" id="TIMER0" location="0x40004000"/&gt;&#13;
+&lt;peripheralInstance derived_from="TIMER" enable="SYSCTL.PCONP.PCTIM1&amp;amp;0x1" id="TIMER1" location="0x40008000"/&gt;&#13;
+&lt;peripheralInstance derived_from="TIMER" enable="SYSCTL.PCONP.PCTIM2&amp;amp;0x1" id="TIMER2" location="0x40090000"/&gt;&#13;
+&lt;peripheralInstance derived_from="TIMER" enable="SYSCTL.PCONP.PCTIM3&amp;amp;0x1" id="TIMER3" location="0x40094000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_RIT" enable="SYSCTL.PCONP.PCRIT&amp;amp;0x1" id="RIT" location="0x400B0000"/&gt;&#13;
+&lt;peripheralInstance derived_from="FGPIO" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO0" location="0x2009C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="FGPIO" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO1" location="0x2009C020"/&gt;&#13;
+&lt;peripheralInstance derived_from="FGPIO" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO2" location="0x2009C040"/&gt;&#13;
+&lt;peripheralInstance derived_from="FGPIO" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO3" location="0x2009C060"/&gt;&#13;
+&lt;peripheralInstance derived_from="FGPIO" enable="SYSCTL.PCONP.PCGPIO&amp;amp;0x1" id="GPIO4" location="0x2009C080"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_I2S" enable="SYSCTL.PCONP&amp;amp;0x08000000" id="I2S" location="0x400A8000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_SYSCTL" id="SYSCTL" location="0x400FC000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_DAC" enable="PCB.PINSEL1.P0_26&amp;amp;0x2=2" id="DAC" location="0x4008C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17xx_UART" enable="SYSCTL.PCONP.PCUART0&amp;amp;0x1" id="UART0" location="0x4000C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17xx_UART_MODEM" enable="SYSCTL.PCONP.PCUART1&amp;amp;0x1" id="UART1" location="0x40010000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17xx_UART" enable="SYSCTL.PCONP.PCUART2&amp;amp;0x1" id="UART2" location="0x40098000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17xx_UART" enable="SYSCTL.PCONP.PCUART3&amp;amp;0x1" id="UART3" location="0x4009C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="SPI" enable="SYSCTL.PCONP.PCSPI&amp;amp;0x1" id="SPI" location="0x40020000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_SSP" enable="SYSCTL.PCONP.PCSSP0&amp;amp;0x1" id="SSP0" location="0x40088000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_SSP" enable="SYSCTL.PCONP.PCSSP1&amp;amp;0x1" id="SSP1" location="0x40030000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_ADC" enable="SYSCTL.PCONP.PCAD&amp;amp;0x1" id="ADC" location="0x40034000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_USBINTST" enable="USBCLKCTL.USBClkCtrl&amp;amp;0x12" id="USBINTSTAT" location="0x400fc1c0"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_USB_CLK_CTL" id="USBCLKCTL" location="0x5000cff4"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_USBDEV" enable="USBCLKCTL.USBClkSt&amp;amp;0x12=0x12" id="USBDEV" location="0x5000C200"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_PWM" enable="SYSCTL.PCONP.PWM1&amp;amp;0x1" id="PWM" location="0x40018000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_I2C" enable="SYSCTL.PCONP.PCI2C0&amp;amp;0x1" id="I2C0" location="0x4001C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_I2C" enable="SYSCTL.PCONP.PCI2C1&amp;amp;0x1" id="I2C1" location="0x4005C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_I2C" enable="SYSCTL.PCONP.PCI2C2&amp;amp;0x1" id="I2C2" location="0x400A0000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_DMA" enable="SYSCTL.PCONP.PCGPDMA&amp;amp;0x1" id="DMA" location="0x50004000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_ENET" enable="SYSCTL.PCONP.PCENET&amp;amp;0x1" id="ENET" location="0x50000000"/&gt;&#13;
+&lt;peripheralInstance derived_from="CM3_DCR" id="DCR" location="0xE000EDF0"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_PCB" id="PCB" location="0x4002c000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_QEI" enable="SYSCTL.PCONP.PCQEI&amp;amp;0x1" id="QEI" location="0x400bc000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_USBHOST" enable="USBCLKCTL.USBClkSt&amp;amp;0x11=0x11" id="USBHOST" location="0x5000C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_USBOTG" enable="USBCLKCTL.USBClkSt&amp;amp;0x1c=0x1c" id="USBOTG" location="0x5000C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_RTC" enable="SYSCTL.PCONP.PCRTC&amp;amp;0x1" id="RTC" location="0x40024000"/&gt;&#13;
+&lt;peripheralInstance derived_from="MPU" id="MPU" location="0xE000ED90"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC1x_WDT" id="WDT" location="0x40000000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_FLASHCFG" id="FLASHACCEL" location="0x400FC000"/&gt;&#13;
+&lt;peripheralInstance derived_from="GPIO_INT" id="GPIOINTMAP" location="0x40028080"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_CANAFR" enable="SYSCTL.PCONP.PCCAN1&amp;amp;0x1|SYSCTL.PCONP.PCCAN2&amp;amp;0x1" id="CANAFR" location="0x4003C000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_CANCEN" enable="SYSCTL.PCONP.PCCAN1&amp;amp;0x1|SYSCTL.PCONP.PCCAN2&amp;amp;0x1" id="CANCEN" location="0x40040000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_CANWAKESLEEP" id="CANWAKESLEEP" location="0x400FC110"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_CANCON" enable="SYSCTL.PCONP.PCCAN1&amp;amp;0x1" id="CANCON1" location="0x40044000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_CANCON" enable="SYSCTL.PCONP.PCCAN2&amp;amp;0x1" id="CANCON2" location="0x40048000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_MCPWM" enable="SYSCTL.PCONP.PCMCPWM&amp;amp;0x1" id="MCPWM" location="0x400B8000"/&gt;&#13;
+&lt;peripheralInstance derived_from="LPC17_FMC" id="FMC" location="0x40084000"/&gt;&#13;
 &lt;/chip&gt;&#13;
 &lt;processor&gt;&lt;name gcc_name="cortex-m3"&gt;Cortex-M3&lt;/name&gt;&#13;
 &lt;family&gt;Cortex-M&lt;/family&gt;&#13;
@@ -209,16 +235,26 @@
 &lt;/infoList&gt;&#13;
 &lt;/TargetConfig&gt;</projectStorage>
 	</storageModule>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/lpc_chip_175x_6x"/>
+		</configuration>
+		<configuration configurationName="Multiple configurations">
+			<resource resourceType="PROJECT" workspacePath="/lpc_chip_175x_6x"/>
+		</configuration>
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/lpc_chip_175x_6x"/>
+		</configuration>
+	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.lib.release.748848757;com.crt.advproject.config.lib.release.748848757.;com.crt.advproject.gas.lib.release.1568034180;com.crt.advproject.assembler.input.1648340189">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.lib.release.748848757;com.crt.advproject.config.lib.release.748848757.;com.crt.advproject.gcc.lib.release.474949157;com.crt.advproject.compiler.input.1534967477">
+		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.lib.debug.1264058482;com.crt.advproject.config.lib.debug.1264058482.;com.crt.advproject.gas.lib.debug.1653831520;com.crt.advproject.assembler.input.1553527623">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.lib.debug.1264058482;com.crt.advproject.config.lib.debug.1264058482.;com.crt.advproject.gas.lib.debug.1653831520;com.crt.advproject.assembler.input.1553527623">
+		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.lib.release.748848757;com.crt.advproject.config.lib.release.748848757.;com.crt.advproject.gcc.lib.release.474949157;com.crt.advproject.compiler.input.1534967477">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.crt.advproject.GCCManagedMakePerProjectProfile"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="com.crt.advproject.config.lib.debug.1264058482;com.crt.advproject.config.lib.debug.1264058482.;com.crt.advproject.gcc.lib.debug.1317359937;com.crt.advproject.compiler.input.999403241">
