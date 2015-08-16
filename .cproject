@@ -25,7 +25,7 @@
 					<folderInfo id="com.crt.advproject.config.lib.debug.1264058482." name="/" resourcePath="">
 						<toolChain id="com.crt.advproject.toolchain.lib.debug.593853259" name="Code Red MCU Tools" nonInternalBuilderId="cdt.managedbuild.target.gnu.builder.base" superClass="com.crt.advproject.toolchain.lib.debug">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.eclipse.cdt.core.GNU_ELF" id="com.crt.advproject.platform.lib.debug.1544112536" name="ARM-based MCU (Debug)" superClass="com.crt.advproject.platform.lib.debug"/>
-							<builder buildPath="${workspace_loc:/lpc_chip_175x_6x}/Debug" id="cdt.managedbuild.target.gnu.builder.base.363062342" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.base"/>
+							<builder buildPath="${workspace_loc:/lpc_chip_175x_6x}/Debug" id="cdt.managedbuild.target.gnu.builder.base.363062342" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.base"/>
 							<tool id="com.crt.advproject.cpp.lib.debug.1864839615" name="MCU C++ Compiler" superClass="com.crt.advproject.cpp.lib.debug"/>
 							<tool id="com.crt.advproject.gcc.lib.debug.1317359937" name="MCU C Compiler" superClass="com.crt.advproject.gcc.lib.debug">
 								<option id="com.crt.advproject.gcc.arch.853820417" name="Architecture" superClass="com.crt.advproject.gcc.arch" value="com.crt.advproject.gcc.target.cm3" valueType="enumerated"/>
@@ -62,27 +62,6 @@
 							<tool id="com.crt.advproject.ar.lib.debug.756466351" name="MCU Archiver" superClass="com.crt.advproject.ar.lib.debug"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.crt.advproject.config.lib.debug.1264058482.10964234" name="usbd_cdc.c" rcbsApplicability="disable" resourcePath="LPCUSBLib/Drivers/USB/Core/LPC/DCD/USBRom/usbd_cdc.c" toolsToInvoke="com.crt.advproject.gcc.lib.debug.1317359937.2124218018">
-						<tool id="com.crt.advproject.gcc.lib.debug.1317359937.2124218018" name="MCU C Compiler" superClass="com.crt.advproject.gcc.lib.debug.1317359937">
-							<option id="gnu.c.compiler.option.preprocessor.def.symbols.1862406018" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
-								<listOptionValue builtIn="false" value="__REDLIB__"/>
-								<listOptionValue builtIn="false" value="DEBUG"/>
-								<listOptionValue builtIn="false" value="__CODE_RED"/>
-								<listOptionValue builtIn="false" value="__USE_LPCOPEN"/>
-								<listOptionValue builtIn="false" value="CORE_M3"/>
-								<listOptionValue builtIn="false" value="__LPC17XX__"/>
-								<listOptionValue builtIn="false" value="__LPC175X_6X__"/>
-								<listOptionValue builtIn="false" value="USB_CAN_BE_DEVICE"/>
-							</option>
-							<inputType id="com.crt.advproject.compiler.input.383563344" superClass="com.crt.advproject.compiler.input"/>
-						</tool>
-						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.270238375" name="Resource Custom Build Step">
-							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1411994494" name="Resource Custom Build Step Input Type">
-								<additionalInput kind="additionalinputdependency"/>
-							</inputType>
-							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.1221833405" name="Resource Custom Build Step Output Type"/>
-						</tool>
-					</fileInfo>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>

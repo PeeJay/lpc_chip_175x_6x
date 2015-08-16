@@ -677,10 +677,7 @@
 			{
 				USB_Descriptor_Header_t Header; /**< Descriptor header, including type and size. */
 
-				#if ((ARCH == ARCH_AVR8) || (ARCH == ARCH_XMEGA))
-				wchar_t  UnicodeString[];
-				#else
-				uint16_t UnicodeString[]; /**< String data, as unicode characters (alternatively,
+				wchar_t UnicodeString[]; /**< String data, as unicode characters (alternatively,
 				                           *   string language IDs). If normal ASCII characters are
 				                           *   to be used, they must be added as an array of characters
 				                           *   rather than a normal C string so that they are widened to
@@ -692,7 +689,6 @@
 				                           *   array of ASCII characters on little endian devices with
 				                           *   UTF-16-LE \c wchar_t encoding.
 				                           */
-				#endif
 			} ATTR_PACKED USB_Descriptor_String_t;
 
 			/** \brief Standard USB String Descriptor (USB-IF naming conventions).

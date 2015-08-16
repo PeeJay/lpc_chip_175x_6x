@@ -552,7 +552,7 @@ void DcdIrqHandler (uint8_t DeviceID)
 
 	if (DevIntSt & ERR_INT)
 	{
-		volatile uint32_t SIEErrorStatus;
+		volatile uint32_t SIEErrorStatus __attribute__ ((unused));
 		SIE_WriteCommamd(CMD_RD_ERR_STAT);
 		SIEErrorStatus = SIE_ReadCommandData(DAT_RD_ERR_STAT);
 	}

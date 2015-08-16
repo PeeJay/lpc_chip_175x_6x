@@ -220,7 +220,7 @@ PRAGMA_ALWAYS_INLINE
 static inline void Endpoint_Discard_8(void) ATTR_ALWAYS_INLINE;
 static inline void Endpoint_Discard_8(void)
 {
-	volatile uint8_t dummy;
+	volatile uint8_t dummy __attribute__ ((unused));
 	dummy = Endpoint_Read_8();
 }
 
