@@ -339,7 +339,14 @@ uint8_t RNDIS_Host_SetRNDISProperty(USB_ClassInfo_RNDIS_Host_t* const RNDISInter
 	struct
 	{
 		RNDIS_Set_Message_t SetMessage;
-		uint8_t             ContiguousBuffer[Length];
+                /* Temporary fix VLA issue on IAR compiler */
+        #if defined(__ICCARM__)
+        #define ContiguousBufferLength 1024
+        #else
+        #define ContiguousBufferLength Length
+        #endif
+                
+		uint8_t             ContiguousBuffer[ContiguousBufferLength];
 	} SetMessageData;
 
 	RNDIS_Set_Complete_t SetMessageResponse;
@@ -385,7 +392,13 @@ uint8_t RNDIS_Host_QueryRNDISProperty(USB_ClassInfo_RNDIS_Host_t* const RNDISInt
 	struct
 	{
 		RNDIS_Query_Complete_t QueryMessageResponse;
-		uint8_t                ContiguousBuffer[MaxLength];
+                /* Temporary fix VLA issue on IAR compiler */
+        #if defined(__ICCARM__)
+        #define ContiguousBufferLength 1024
+        #else
+        #define ContiguousBufferLength MaxLength
+        #endif
+		uint8_t                ContiguousBuffer[ContiguousBufferLength];
 	} QueryMessageResponseData;
 
 	QueryMessage.MessageType    = CPU_TO_LE32(REMOTE_NDIS_QUERY_MSG);

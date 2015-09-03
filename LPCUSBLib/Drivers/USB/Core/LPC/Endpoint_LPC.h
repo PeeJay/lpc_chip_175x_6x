@@ -28,13 +28,13 @@
 #ifndef __ENDPOINT_LPC_H__
 #define __ENDPOINT_LPC_H__
 
-//#if defined(__LPC18XX__)||defined(__LPC43XX__)
-//	#include "DCD/LPC18XX/Endpoint_LPC18xx.h"
-//#elif defined(__LPC17XX__)||defined(__LPC177X_8X__)
-#include "DCD/LPC17XX/Endpoint_LPC17xx.h"
-//#elif defined(__LPC11UXX__)||defined(__LPC13UXX__)
-//	#include "DCD/LPC11UXX/Endpoint_LPC11Uxx.h"
-//#endif
+#if defined(__LPC18XX__)||defined(__LPC43XX__)
+	#include "DCD/LPC18XX/Endpoint_LPC18xx.h"
+#elif defined(__LPC17XX__)||defined(__LPC177X_8X__)
+	#include "DCD/LPC17XX/Endpoint_LPC17xx.h"
+#elif defined(__LPC11UXX__)||defined(__LPC13UXX__)
+	#include "DCD/LPC11UXX/Endpoint_LPC11Uxx.h"
+#endif
 
 #include "../../../../Common/Common.h"
 #include "../USBTask.h"

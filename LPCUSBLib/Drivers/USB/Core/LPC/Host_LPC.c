@@ -33,7 +33,7 @@
 #define  __INCLUDE_FROM_HOST_C
 #include "../Host.h"
 
-//static uint8_t CurrentHostID = 0;
+static uint8_t CurrentHostID = 0;
 uint8_t USB_Host_ControlPipeSize[MAX_USB_CORE];
 
 void USB_Host_SetDeviceSpeed(uint8_t hostid, HCD_USB_SPEED speed);
