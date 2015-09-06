@@ -65,12 +65,11 @@
     LPC_SYSCON->PCONP |= (1UL<<31);                	/* USB PCLK -> enable USB Per.*/
 
 #if defined(USB_CAN_BE_DEVICE)
-	//if(USB_CurrentMode == USB_MODE_Device){
-		LPC_USB->USBClkCtrl = 0x12;                 /* Dev, PortSel, AHB clock enable */
-		while ((LPC_USB->USBClkSt & 0x12) != 0x12);
+	LPC_USB->USBClkCtrl = 0x12;                 /* Dev, PortSel, AHB clock enable */
+	while ((LPC_USB->USBClkSt & 0x12) != 0x12);
 
-		HAL_Reset();
-	//}
+	Chip_USB_Init();
+	HAL_Reset();
 #endif
  }
 /********************************************************************//**
