@@ -55,6 +55,17 @@
 #ifndef __LPCUSBlib_COMMON_H__
 #define __LPCUSBlib_COMMON_H__
 
+//FIXME: 60 cycles @ 120 MHz = 500ns delay. Stupid I know...
+#ifndef DELAY500NS
+#define DELAY500NS \
+		  asm("nop");asm("nop");asm("nop");asm("nop"); asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");asm("nop"); \
+		  asm("nop");asm("nop");asm("nop");asm("nop"); asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");asm("nop"); \
+		  asm("nop");asm("nop");asm("nop");asm("nop"); asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");asm("nop"); \
+		  asm("nop");asm("nop");asm("nop");asm("nop"); asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");asm("nop"); \
+		  asm("nop");asm("nop");asm("nop");asm("nop"); asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");asm("nop"); \
+		  asm("nop");asm("nop");asm("nop");asm("nop"); asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");
+#endif
+
 	/* Macros: */
 		#define __INCLUDE_FROM_COMMON_H
 		
@@ -289,11 +300,8 @@ PRAGMA_ALWAYS_INLINE
 				#elif (ARCH == ARCH_LPC)
 				while (Milliseconds--)
 				{
-					volatile  uint32_t  i;
-
-					for (i = 0; i < (4 * 1000); i++) {    /* This logic was tested. It gives app. 1 micro sec delay        */
-						;
-					}
+					DELAY500NS;
+					DELAY500NS;
 				}
 				#endif
 			}

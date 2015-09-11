@@ -31,17 +31,24 @@
 
 #include "chip.h"
 
-/*****************************************************************************
- * Private types/enumerations/variables
- ****************************************************************************/
-
-/*****************************************************************************
- * Public types/enumerations/variables
- ****************************************************************************/
-
-/*****************************************************************************
- * Private functions
- ****************************************************************************/
+/*
+* PLL0 MUST be 275 - 550MHz
+*
+* PLL0 = Fin * M * 2 / N
+*
+* Fcpu = PLL0 / D
+*
+* PLL0CFG = (M - 1) + ((N - 1) << 16)
+* CCLKCFG = D - 1
+*
+* Common combinations (assuming 12MHz crystal):
+*
+* |   Fcpu |--|   Fin |  M | N |   PLL0 | D | PLL0CFG | CCLKCFG |
+*    96MHz :2*  12MHz * 12 / 1 = 288MHz / 3   0x0000B       0x2
+*   100MHz :2*  12MHz * 25 / 2 = 300MHz / 3   0x10018       0x2
+*   120MHz :2*  12MHz * 15 / 1 = 360MHz / 3   0x0000E       0x2
+*
+*/
 
 /*****************************************************************************
  * Public functions
@@ -94,13 +101,13 @@ void Chip_SetupXtalClocking(void)
 	Chip_Clock_SetCPUClockDiv(0);
 	Chip_Clock_SetMainPLLSource(SYSCTL_PLLCLKSRC_MAINOSC);
 
-	/* FCCO = ((15+1) * 2 * 12MHz) / (0+1) = 384MHz */
-	Chip_Clock_SetupPLL(SYSCTL_MAIN_PLL, 15, 0);
+	/* FCCO = ((14+1) * 2 * 12MHz) / (0+1) = 360MHz */
+	Chip_Clock_SetupPLL(SYSCTL_MAIN_PLL, 14, 0);
 
 	Chip_Clock_EnablePLL(SYSCTL_MAIN_PLL, SYSCTL_PLL_ENABLE);
 
-	/* 384MHz / (3+1) = 96MHz */
-	Chip_Clock_SetCPUClockDiv(3);
+	/* 384MHz / (2+1) = 120MHz */
+	Chip_Clock_SetCPUClockDiv(2);
 	while (!Chip_Clock_IsMainPLLLocked()) {} /* Wait for the PLL to Lock */
 
 	Chip_Clock_EnablePLL(SYSCTL_MAIN_PLL, SYSCTL_PLL_CONNECT);
