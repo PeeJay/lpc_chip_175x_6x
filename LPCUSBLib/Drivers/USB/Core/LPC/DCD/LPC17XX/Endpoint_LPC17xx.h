@@ -85,7 +85,7 @@
 	/* Private Interface - For use in library only: */
 	#if !defined(__DOXYGEN__)
 		/* Macros: */
-			#define ENDPOINT_DETAILS_MAXEP		6							/* Maximum of supported endpoint */
+			#define ENDPOINT_DETAILS_MAXEP		15							/* Maximum of supported endpoint */
 			#define USED_PHYSICAL_ENDPOINTS		(ENDPOINT_DETAILS_MAXEP*2) 	/* This macro effect memory size of the DCD */
 
 			extern volatile bool SETUPReceived;
