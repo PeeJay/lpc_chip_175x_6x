@@ -210,7 +210,7 @@ STATIC INLINE void Chip_EEPROM_SetWaitState(LPC_EEPROM_T *pEEPROM, uint32_t ws)
  * @note	This function actually write data into EEPROM memory and automatically
  * write into next page if current page is overflowed
  */
-Status Chip_EEPROM_Write(LPC_EEPROM_T *pEEPROM, uint16_t pageOffset,
+LPC_Status Chip_EEPROM_Write(LPC_EEPROM_T *pEEPROM, uint16_t pageOffset,
 						 uint16_t pageAddress,
 						 void *pData,
 						 EEPROM_RWSIZE_T wsize,

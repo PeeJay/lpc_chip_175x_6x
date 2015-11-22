@@ -1,6 +1,8 @@
 /*
+ * @brief FPU init code
+ *
  * @note
- * Copyright(C) NXP Semiconductors, 2014
+ * Copyright(C) NXP Semiconductors, 2012
  * All rights reserved.
  *
  * @par
@@ -27,16 +29,24 @@
  * this code.
  */
 
-#ifndef __SYS_CONFIG_H_
-#define __SYS_CONFIG_H_
+#ifndef __FPU_INIT_H_
+#define __FPU_INIT_H_
 
-/* Build for 407x/8x chip family */
-//#define CHIP_LPC40XX
+/**
+ * @defgroup CHIP_FPU_CMX CHIP: FPU initialization
+ * @ingroup CHIP_Common
+ * Cortex FPU initialization
+ * @{
+ */
 
-/* For the LPC4074, the __FPU_PRESENT definition should be set to 0 */
-// #define __FPU_PRESENT 0
+/**
+ * @brief	Early initialization of the FPU
+ * @return	Nothing
+ */
+void fpuInit(void);
 
-/* Enable DMA in SDC driver */
-#define SDC_DMA_ENABLE
+/**
+ * @}
+ */
 
-#endif /* __SYS_CONFIG_H_ */
+#endif /* __FPU_INIT_H_ */

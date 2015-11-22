@@ -189,7 +189,7 @@ uint32_t Chip_EEPROM_ReadPage(LPC_EEPROM_T *pEEPROM,
 }
 
 /* Write data to EEPROM at specific address */
-Status Chip_EEPROM_Write(LPC_EEPROM_T *pEEPROM,
+LPC_Status Chip_EEPROM_Write(LPC_EEPROM_T *pEEPROM,
 						 uint16_t pageOffset,
 						 uint16_t pageAddr,
 						 void *pData,
