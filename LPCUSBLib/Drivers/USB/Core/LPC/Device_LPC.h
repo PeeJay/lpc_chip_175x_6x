@@ -28,9 +28,11 @@
 #ifndef __DEVICE_LPC_H__
 #define __DEVICE_LPC_H__
 
+#include "config.h"
+
 #if defined(__LPC18XX__)||defined(__LPC43XX__)
 	#include "DCD/LPC18XX/Device_LPC18xx.h"
-#elif defined(__LPC17XX__)||defined(__LPC177X_8X__)
+#elif defined(CHIP_LPC175X_6X) || defined(CHIP_LPC177X_8X)
 	#include "DCD/LPC17XX/Device_LPC17xx.h"
 #elif defined(__LPC11UXX__)||defined(__LPC13UXX__)
 	#include "DCD/LPC11UXX/Device_LPC11Uxx.h"

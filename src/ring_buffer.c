@@ -30,7 +30,7 @@
  */
 
 #include <string.h>
-#include "ring_buffer.h"
+#include "../inc/ring_buffer.h"
 
 /*****************************************************************************
  * Private types/enumerations/variables

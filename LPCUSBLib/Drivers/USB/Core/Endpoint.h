@@ -110,6 +110,8 @@
 			#include "XMEGA/Endpoint_XMEGA.h"
 		#elif (ARCH == ARCH_LPC)
 			#include "LPC/Endpoint_LPC.h"
+		#elif
+			#error ARCH not defined!
 		#endif
 
 	/* Disable C linkage for C++ Compilers: */

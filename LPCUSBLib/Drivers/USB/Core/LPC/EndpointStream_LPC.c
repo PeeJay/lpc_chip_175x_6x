@@ -101,7 +101,7 @@ uint8_t Endpoint_Read_Stream_LE(void* const Buffer,
 	
 	for(i=0;i<Length;i++)
 	{
-		#if defined(__LPC17XX__) || defined(__LPC177X_8X__)
+		#if defined(CHIP_LPC175X_6X) || defined(CHIP_LPC177X_8X)
 		if (endpointselected!=ENDPOINT_CONTROLEP)
 			while(usb_data_buffer_OUT_size == 0); /* Current Fix for LPC17xx, havent checked for others */
 		#endif

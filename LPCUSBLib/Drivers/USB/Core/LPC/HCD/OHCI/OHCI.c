@@ -97,9 +97,9 @@ HCD_STATUS HcdInitDriver(uint8_t HostID)
 {
 	OHCI_REG(HostID)->OTGClkCtrl = 0x00000019;			/* enable Host clock, OTG clock and AHB clock */
 	while((OHCI_REG(HostID)->OTGClkSt & 0x00000019)!= 0x00000019);
-#if defined(__LPC17XX__)
+#if defined(CHIP_LPC175X_6X)
 	OHCI_REG(HostID)->StCtrl = 0x3;					/* ??? */
-#elif defined(__LPC177X_8X__)
+#elif defined(CHIP_LPC177X_8X)
 	OHCI_REG(HostID)->StCtrl = 0x1;					/* Port 1 is host */
 #endif
 	OHciHostReset(HostID);	/* Software Reset */

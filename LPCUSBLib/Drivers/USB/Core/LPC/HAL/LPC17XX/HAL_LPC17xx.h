@@ -28,18 +28,15 @@
 #ifndef __HAL_LPC17XX_H__
 #define __HAL_LPC17XX_H__
 
-#if defined(__LPC17XX__)
-#include "chip.h"
-#elif defined(__LPC177X_8X__)
-#include "LPC177x_8x.h"
-#endif
-#include "lpc_types.h"
 #define  __INCLUDE_FROM_USB_DRIVER
 #include "../../../USBMode.h"
 
+#include "config.h"
+#include "../../../../../../../inc/chip.h"
+
 #define USBRAM_SECTION	RAM2
 
-#if defined(__LPC177X_8X__)
+#if defined(CHIP_LPC177X_8X)
 /** This macro used in Keil only to declare a variable in a defined section. */
 #if defined(__CC_ARM)
 	#undef	__DATA(x)

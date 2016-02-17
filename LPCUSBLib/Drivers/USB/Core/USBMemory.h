@@ -32,7 +32,6 @@
 #define __USBMEMORY_H__
 
 /* Includes: */
-#include "lpc_types.h"
 #include "../../../Common/Common.h"
 
 /* Function Prototypes: */

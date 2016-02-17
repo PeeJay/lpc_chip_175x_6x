@@ -11,8 +11,8 @@
 /
 /-------------------------------------------------------------------------*/
 
-#include "LPC176x.h"
-#include "diskio.h"
+#include "../inc/LPC176x.h"
+#include "../inc/diskio.h"
 
 #define SSP_CH	1	/* SSP channel to use (0:SSP0, 1:SSP1) */
 

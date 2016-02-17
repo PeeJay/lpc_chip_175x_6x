@@ -58,6 +58,7 @@
 #ifndef __USBMODE_H__
 #define __USBMODE_H__
 
+
 	/* Enable C linkage for C++ Compilers: */
 		#if defined(__cplusplus)
 			extern "C" {
@@ -69,6 +70,7 @@
 		#endif
 
 		#include "../../../LPCUSBlibConfig.h"
+		#include "config.h"
 
 	/* Public Interface - May be used in end-application: */
 	#if defined(__DOXYGEN__)
@@ -192,7 +194,7 @@
 			#elif (defined(__AVR_ATxmega256A3BU__))
 				#define USB_SERIES_A3BU_XMEGA
 				#define USB_CAN_BE_DEVICE
-			#elif (defined(__LPC17XX__))||(defined(__LPC177X_8X__))
+			#elif (defined(CHIP_LPC175X_6X)) || (defined(CHIP_LPC177X_8X))
 				#define USB_CAN_BE_HOST
 				#define __LPC_OHCI__
 				#define USB_CAN_BE_DEVICE

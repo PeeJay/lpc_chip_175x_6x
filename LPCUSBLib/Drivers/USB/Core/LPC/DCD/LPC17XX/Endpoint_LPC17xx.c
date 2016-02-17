@@ -29,7 +29,7 @@
 #include "../../../USBMode.h"
 
 
-#if (defined(__LPC17XX__)||defined(__LPC177X_8X__)) && defined(USB_CAN_BE_DEVICE)
+#if (defined(CHIP_LPC175X_6X) || defined(CHIP_LPC177X_8X)) && defined(USB_CAN_BE_DEVICE)
 #include "../../../Endpoint.h"
 
 #define IsOutEndpoint(PhysicalEP)		(! ((PhysicalEP) & 1) )

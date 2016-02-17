@@ -34,6 +34,8 @@
 #ifndef __LPC_HAL_H__
 #define __LPC_HAL_H__
 
+#include "config.h"
+
 /* Macros: */
 /** These macros used to declare a variable in a defined section (ex: USB RAM section). */
 #ifdef __CODE_RED
@@ -49,7 +51,7 @@
 /* Chip Includes: */
 #if defined(__LPC18XX__)||defined(__LPC43XX__)
 	#include "LPC18XX/HAL_LPC18xx.h"
-#elif defined(__LPC17XX__)||defined(__LPC177X_8X__)
+#elif defined(CHIP_LPC175X_6X) || defined(CHIP_LPC177X_8X)
 	#include "LPC17XX/HAL_LPC17xx.h"
 #elif defined(__LPC11UXX__)||defined(__LPC13UXX__)
 	#include "LPC11UXX/HAL_LPC11Uxx.h"

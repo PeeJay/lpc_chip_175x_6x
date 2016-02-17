@@ -24,8 +24,10 @@
 * this code.
 */
 
-#if defined(__LPC17XX__)||defined(__LPC177X_8X__)
+#include "config.h"
 
+#if defined(CHIP_LPC175X_6X) || defined(CHIP_LPC177X_8X)
+#include "../../../../../../../inc/chip.h"
 #include "../HAL_LPC.h"
 #include "../../../USBTask.h"
 
@@ -36,7 +38,7 @@
  *********************************************************************/
  void HAL_USBInit(uint8_t corenum)
  {
-#if defined(__LPC17XX__)
+#if defined(CHIP_LPC175X_6X)
   	LPC_IOCON->PINSEL[1] &= ~((3<<26)|(3<<28));  /* P0.29 D+, P0.30 D- */
   	LPC_IOCON->PINSEL[1] |=  ((1<<26)|(1<<28));  /* PINSEL1 26.27, 28.29  = 01 */
 
@@ -45,7 +47,7 @@
   	LPC_IOCON->PINSEL[3] |= (2<<6);
 #endif
 
-#elif defined(__LPC177X_8X__)
+#elif defined(CHIP_LPC177X_8X)
 
     LPC_IOCON->P0_29 &= ~0x07;    				/* P0.29 D1+, P0.30 D1- */
     LPC_IOCON->P0_29 |= 0x1;
@@ -81,9 +83,9 @@
  {
  	NVIC_DisableIRQ(USB_IRQn);               	/* disable USB interrupt */
  	LPC_SYSCON->PCONP &= (~(1UL<<31));              /* disable USB Per.      */
-#if defined(__LPC17XX__)
+#if defined(CHIP_LPC175X_6X)
  	LPC_IOCON->PINSEL[1] &= ~((3<<26)|(3<<28));  /* P0.29 D+, P0.30 D- reset to GPIO function */
-#elif defined(__LPC177X_8X__)
+#elif defined(CHIP_LPC177X_8X)
  	LPC_IOCON->P0_29 &= ~0x07;					/* P0.29 D1+, P0.30 D1- reset to GPIO function */
  	LPC_IOCON->P0_30 &= ~0x07;
 #endif

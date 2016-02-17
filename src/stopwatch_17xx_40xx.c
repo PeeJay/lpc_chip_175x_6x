@@ -30,7 +30,7 @@
  */
 
 #include "chip.h"
-#include "stopwatch.h"
+#include "../inc/stopwatch.h"
 
 /*****************************************************************************
  * Private types/enumerations/variables
