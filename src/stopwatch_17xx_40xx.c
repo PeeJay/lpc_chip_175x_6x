@@ -29,7 +29,7 @@
  * this code.
  */
 
-#include "chip.h"
+#include "../inc/chip.h"
 #include "../inc/stopwatch.h"
 
 /*****************************************************************************

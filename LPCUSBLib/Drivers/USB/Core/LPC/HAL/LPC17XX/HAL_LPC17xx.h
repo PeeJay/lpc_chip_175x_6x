@@ -31,7 +31,7 @@
 #define  __INCLUDE_FROM_USB_DRIVER
 #include "../../../USBMode.h"
 
-#include "config.h"
+#include "../../../../../../../config.h"
 #include "../../../../../../../inc/chip.h"
 
 #define USBRAM_SECTION	RAM2

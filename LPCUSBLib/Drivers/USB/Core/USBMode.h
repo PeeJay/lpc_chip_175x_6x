@@ -70,7 +70,7 @@
 		#endif
 
 		#include "../../../LPCUSBlibConfig.h"
-		#include "config.h"
+		#include "../../../../config.h"
 
 	/* Public Interface - May be used in end-application: */
 	#if defined(__DOXYGEN__)

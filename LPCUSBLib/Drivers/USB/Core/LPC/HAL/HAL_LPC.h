@@ -34,7 +34,7 @@
 #ifndef __LPC_HAL_H__
 #define __LPC_HAL_H__
 
-#include "config.h"
+#include "../../../../../../config.h"
 
 /* Macros: */
 /** These macros used to declare a variable in a defined section (ex: USB RAM section). */

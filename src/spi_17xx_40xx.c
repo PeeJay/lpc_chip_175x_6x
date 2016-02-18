@@ -29,7 +29,7 @@
  * this code.
  */
 
-#include "chip.h"
+#include "../inc/chip.h"
 
 #if defined(CHIP_LPC175X_6X)
 

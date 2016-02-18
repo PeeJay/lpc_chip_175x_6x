@@ -28,7 +28,7 @@
 #ifndef __DEVICE_LPC_H__
 #define __DEVICE_LPC_H__
 
-#include "config.h"
+#include "../../../../../config.h"
 
 #if defined(__LPC18XX__)||defined(__LPC43XX__)
 	#include "DCD/LPC18XX/Device_LPC18xx.h"

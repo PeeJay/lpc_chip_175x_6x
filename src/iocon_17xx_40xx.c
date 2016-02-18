@@ -26,7 +26,7 @@
  * this code.
  */
 
-#include "chip.h"
+#include "../inc/chip.h"
 
 /*****************************************************************************
  * Private types/enumerations/variables

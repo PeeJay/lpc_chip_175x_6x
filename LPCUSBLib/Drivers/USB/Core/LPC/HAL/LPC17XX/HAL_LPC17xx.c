@@ -24,7 +24,7 @@
 * this code.
 */
 
-#include "config.h"
+#include "../../../../../../../config.h"
 
 #if defined(CHIP_LPC175X_6X) || defined(CHIP_LPC177X_8X)
 #include "../../../../../../../inc/chip.h"

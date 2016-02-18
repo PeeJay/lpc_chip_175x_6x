@@ -29,7 +29,7 @@
  * this code.
  */
 
-#include "chip.h"
+#include "../inc/chip.h"
 
 /*
 * PLL0 MUST be 275 - 550MHz
