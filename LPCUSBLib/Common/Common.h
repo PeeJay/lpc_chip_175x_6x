@@ -150,11 +150,7 @@
 		#elif (ARCH == ARCH_LPC)
 			typedef uint32_t uint_reg_t;
 			#define ARCH_LITTLE_ENDIAN
-			#if !defined(__ICCARM__)
-			#define PROGMEM                  const
-			#else
 			#define PROGMEM
-			#endif                        
 			#define pgm_read_byte(x)         (*x)
 			#define memcmp_P(...)            memcmp(__VA_ARGS__)
 			#define memcpy_P(...)            memcpy(__VA_ARGS__)
