@@ -83,11 +83,9 @@
 			#include "../LPCUSBlibConfig.h"
 		#endif
 
-		#include "ArchitectureSpecific.h"
 		#include "CompilerSpecific.h"
 		#include "Architectures.h"
 		#include "Attributes.h"
-		#include "BoardTypes.h"
 		
 	/* Enable C linkage for C++ Compilers: */
 		#if defined(__cplusplus)
