@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(lpc)
+project(lpc1769)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
