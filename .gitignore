@@ -1,7 +1,7 @@
 .metadata
 Debug/
 Release/
-build/
+target/
 *.bak
 .cproject
 .settings/
