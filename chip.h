@@ -16,6 +16,7 @@ extern "C" {
 
 #include "inc/chip.h"
 #include "fatfs/inc/ff.h"
+#include "fatfs/inc/diskio.h"
 #include "LPCUSBLib/Drivers/USB/USB.h"
 
 #ifdef __cplusplus
