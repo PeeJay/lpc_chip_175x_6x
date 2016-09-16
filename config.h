@@ -8,12 +8,25 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
+/* Add these include directories:
+ * /inc
+ * /fatfs/inc
+ * /LPCUSBLib/Drivers/USB
+ */
+
 //Mod these to suit
-#define USB_DEVICE_ONLY
-//#define USB_CAN_BE_DEVICE
+//#define USB_DEVICE_ONLY
+#define USB_CAN_BE_DEVICE
 
 #if defined(__ARM_ARCH_7M__)
 #define CHIP_LPC175X_6X
+#endif
+
+#if defined(__ARM_ARCH_7EM__) //LPC4078
+#define CHIP_LPC40XX
+#define SDC_DMA_ENABLE
+#define __FPU_PRESENT 1
+#define CORE_M4
 #endif
 
 #if (defined(CHIP_LPC175X_6X) || defined(CHIP_LPC177X_8X))
